@@ -39,7 +39,8 @@ const responsive = {
 
 const Banner = () => {
   return (
-    <Carousel responsive={responsive}
+    <Carousel
+    responsive={responsive}
     swipeable={false}
     draggable={false}
     showDots={true}

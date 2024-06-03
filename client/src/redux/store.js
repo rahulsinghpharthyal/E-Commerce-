@@ -12,6 +12,7 @@ const reducer = combineReducers({
     cart: cartReducer,
 });
 
+
 const middleware = [thunk];
 
 const store = createStore(

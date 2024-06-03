@@ -1,18 +1,25 @@
-import { products } from "./constent/data.js"
+    import { products } from "./constent/data.js"
 
-import Product from "./model/productSchema.js"
+    import Product from "./model/productSchema.js"
 
 
-const DefaultData = async () => {
-    try{
+    const DefaultData = async () => {
+        try{
+            for (const product of products) {
+                await Product.updateOne(
+                  { id: product.id },   // filter
+                  { $set: product },    // update operation
+                  { upsert: true }      // create if not exists
+                );
+              }
 
-        await Product.insertMany(products);
-        console.log("data imported succesfully")
+            /* await Product.insertMany(products);*/
+            console.log("data imported succesfully")
 
-    }catch(error){
-        console.log('Error while inserting default data', error.message)
+        }catch(error){
+            console.log('Error while inserting default data', error.message)
+        }
     }
-}
 
-export default DefaultData;
+    export default DefaultData;
 

@@ -18,7 +18,7 @@ const  Container = styled(Box)`
 const Home = () => {
 
   const { products } = useSelector(state => state.getProducts)
-  console.log(products)
+  console.log('this is products', products)
 
 
   const dispatch = useDispatch();
